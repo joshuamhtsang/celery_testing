@@ -13,3 +13,5 @@ services:
       dockerfile: Dockerfile_celery_worker
     command: >
       celery -A youtube_download worker --loglevel=debug
+    links:
+      - rabbitmq

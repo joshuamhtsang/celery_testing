@@ -4,7 +4,7 @@ import subprocess
 app = Celery(
     'youtube_download',
     backend='rpc://',
-    broker='amqp://guest:guest@localhost:5672'
+    broker='amqp://guest:guest@rabbitmq:5672'
     )
 
 
