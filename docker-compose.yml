@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    hostname: "some-rabbit"
+  celery_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile_celery_worker
+    command: >
+      celery -A youtube_download worker --loglevel=debug
